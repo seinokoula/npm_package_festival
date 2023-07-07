@@ -27,13 +27,16 @@ async function getCitiesWithFestivals() {
         festivalData.records.forEach((record) => {
             const city = record.fields.commune_principale;
 
-            // eslint-disable-next-line no-prototype-builtins
             if (!citiesWithFestivals.hasOwnProperty(city)) {
                 citiesWithFestivals[city] = [];
             }
 
             const festivalName = record.fields.nom_de_la_manifestation;
             citiesWithFestivals[city].push(festivalName);
+            const festivalType = record.fields.domaine;
+            citiesWithFestivals[city].push(festivalType);
+            const festivalDate = record.fields.mois_habituel_de_debut;
+            citiesWithFestivals[city].push(festivalDate);
         });
 
         return citiesWithFestivals;

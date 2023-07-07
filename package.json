@@ -1,6 +1,6 @@
 {
   "name": "festivalle_pakajes",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Package to have things",
   "main": "index.js",
   "scripts": {
