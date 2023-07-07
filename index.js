@@ -19,16 +19,29 @@ function fetchFestivalData() {
     });
 }
 
-function getFestivalData() {
-    return fetchFestivalData()
-        .then((festivalData) => {
-            return festivalData;
-        })
-        .catch((error) => {
-            console.error('Error:', error)
+async function getCitiesWithFestivals() {
+    try {
+        const festivalData = await fetchFestivalData();
+        const citiesWithFestivals = {};
+
+        festivalData.records.forEach((record) => {
+            const city = record.fields.commune_principale;
+
+            // eslint-disable-next-line no-prototype-builtins
+            if (!citiesWithFestivals.hasOwnProperty(city)) {
+                citiesWithFestivals[city] = [];
+            }
+
+            const festivalName = record.fields.nom_de_la_manifestation;
+            citiesWithFestivals[city].push(festivalName);
         });
+
+        return citiesWithFestivals;
+    } catch (error) {
+        throw new Error('Failed to fetch festival data: ' + error.message);
+    }
 }
 
 module.exports = {
-    getFestivalData
+    getCitiesWithFestivals
 };

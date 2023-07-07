@@ -1,9 +1,9 @@
-const { getFestivalData } = require('./index'); 
+const { getCitiesWithFestivals } = require('./index');
 
-test('Obtenir les données des festivals', async () => {
-    const festivalData = await getFestivalData();
+test('Afficher les villes et les festivals associés', async () => {
+    const citiesWithFestivals = await getCitiesWithFestivals();
 
-    expect(festivalData).toBeDefined();
-    expect(Array.isArray(festivalData.records)).toBe(true);
-    expect(festivalData.records.length).toBeGreaterThan(0);
+    const cityNames = Object.keys(citiesWithFestivals);
+
+    expect(cityNames.length).toBeGreaterThan(0);
 });
