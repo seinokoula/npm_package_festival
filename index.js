@@ -27,6 +27,7 @@ async function getCitiesWithFestivals() {
         festivalData.records.forEach((record) => {
             const city = record.fields.commune_principale;
 
+            // eslint-disable-next-line no-prototype-builtins
             if (!citiesWithFestivals.hasOwnProperty(city)) {
                 citiesWithFestivals[city] = [];
             }
