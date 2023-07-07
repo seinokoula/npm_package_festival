@@ -1,6 +1,6 @@
 {
   "name": "festivalle_pakajes",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Package to have things",
   "main": "index.js",
   "scripts": {
@@ -19,5 +19,8 @@
   "devDependencies": {
     "eslint": "^8.44.0",
     "jest": "^29.6.1"
+  },
+  "dependencies": {
+    "xhr2": "^0.2.1"
   }
 }
